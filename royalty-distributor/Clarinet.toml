@@ -1,10 +1,66 @@
 [project]
 name = "nft-royalty-distributor"
+version = "2.0.0"
+description = "Enhanced NFT Royalty Distribution System with Marketplace Integration"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+keywords = ["nft", "royalty", "stacks", "clarity", "marketplace"]
 
 [contracts.royalty-distributor]
 path = "contracts/royalty-distributor.clar"
+clarity_version = 2
+epoch = "2.4"
 
-[devnet]
-[devnet.accounts]
-deployer = "SZ2JC...XXX"
-wallet_1 = "SZ1B7...YYY"
+[contracts.nft-marketplace]
+path = "contracts/nft-marketplace.clar"
+clarity_version = 2
+epoch = "2.4"
+
+[project.requirements]
+clarinet = ">=2.0.0"
+
+# Development network configuration
+[network]
+name = "testnet"
+
+[network.deployment.testnet]
+royalty-distributor = "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.royalty-distributor"
+nft-marketplace = "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.nft-marketplace"
+
+[network.deployment.mainnet]
+# Mainnet deployment addresses (to be filled when deploying)
+royalty-distributor = ""
+nft-marketplace = ""
+
+# Test configuration
+[test]
+coverage = true
+junit_xml = "test-results.xml"
+
+# Repl configuration
+[repl]
+initial_contracts = [
+    "royalty-distributor",
+    "nft-marketplace"
+]
+
+# Development accounts for testing
+[network.accounts]
+deployer = "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM"
+wallet_1 = "ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5"
+wallet_2 = "ST2CY5V39NHDPWSXMW9QDT3HC3GD6Q6XX4CFRK9AG"
+wallet_3 = "ST2JHG361ZXG51QTKY2NQCVBPPRRE2KZB1HR05NNC"
+
+# CI/CD Configuration
+[ci]
+github_actions = true
+coverage_threshold = 80
+
+# Security settings
+[security]
+allow_wallets = ["deployer", "wallet_1", "wallet_2", "wallet_3"]
+max_gas_limit = 1000000
+
+# Development settings
+[development]
+clarity_version = 2

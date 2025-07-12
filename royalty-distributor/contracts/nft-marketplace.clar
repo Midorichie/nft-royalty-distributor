@@ -45,7 +45,7 @@
 ;; Define trait for royalty distribution
 (define-trait royalty-receiver-trait
   (
-    (receive-royalty (principal uint) (response uint uint))
+    (distribute-royalty (principal uint) (response uint uint))
   )
 )
 
