@@ -1,0 +1,10 @@
+[project]
+name = "nft-royalty-distributor"
+
+[contracts.royalty-distributor]
+path = "contracts/royalty-distributor.clar"
+
+[devnet]
+[devnet.accounts]
+deployer = "SZ2JC...XXX"
+wallet_1 = "SZ1B7...YYY"
